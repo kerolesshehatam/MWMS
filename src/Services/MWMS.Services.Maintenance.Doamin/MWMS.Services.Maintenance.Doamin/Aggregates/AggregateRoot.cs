@@ -19,6 +19,7 @@ namespace MWMS.Services.Maintenance.Doamin.Aggregates
 
         /// <summary>
         /// The original version of the aggregate after replaying all events in the event-store.
+        /// to maintain optimistic locking 
         /// </summary>
         public int Version { get; private set; }
 
