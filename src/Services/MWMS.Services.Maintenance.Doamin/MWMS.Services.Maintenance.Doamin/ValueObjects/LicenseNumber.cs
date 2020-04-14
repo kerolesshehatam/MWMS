@@ -6,7 +6,7 @@ namespace MWMS.Services.Maintenance.Doamin.ValueObjects
 {
     public class LicenseNumber : ValueObject
     {
-        private const string NUMBER_PATTERN = @"^((\d{1,3}|[a-z]{1,3})-){2}(\d{1,3}|[a-z]{1,3})$";
+        private const string NUMBER_PATTERN = @"^[a-zA-Z0-9_.-]*$";
 
         public string Value { get; private set; }
 

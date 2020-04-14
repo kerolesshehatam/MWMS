@@ -31,12 +31,14 @@ namespace MWMS.Services.Maintenance.API.Controllers
         }
 
         [HttpGet]
-        [Route("{calendarDate}", Name = "GetByDate")]
-        public async Task<IActionResult> GetByDate(DateTime calendarDate)
+        [Route("{calendarDate}")]
+        public async Task<IActionResult> GetByDate(string calendarDate = "")
         {
             try
             {
-                var calendar = await _workshopQueries.GetWorkshopCalendarAsync(calendarDate);
+                DateTime validCalendarDate;
+                DateTime.TryParse(calendarDate, out validCalendarDate);
+                var calendar = await _workshopQueries.GetWorkshopCalendarAsync(validCalendarDate);
                 if (calendar == null)
                 {
                     return NotFound();

@@ -6,7 +6,7 @@ namespace MWMS.Services.Maintenance.InfrastructureLayer.MongoDB
     public class WorkshopCalendar
     {
         [BsonId]
-        public ObjectId InternalId { get; }
+        public ObjectId InternalId { get; set; }
         //ID is date
         public string Date { get; set; }
         public int CurrentVersion { get; set; }

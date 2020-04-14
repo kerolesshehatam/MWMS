@@ -6,6 +6,6 @@ namespace MWMS.Services.Maintenance.API.Models
     public class WorkshopCalendarModel
     {
         public string Date { get; set; }
-        public List<MaintenanceJobModel> Jobs { get; set; }
+        public IEnumerable<MaintenanceJobModel> Jobs { get; set; }
     }
 }

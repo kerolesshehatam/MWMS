@@ -3,6 +3,7 @@ using MWMS.Services.Maintenance.API.Models;
 using MWMS.Services.Maintenance.InfrastructureLayer.MongoDB;
 using MWMS.Services.Maintenance.InfrastructureLayer.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MWMS.Services.Maintenance.API.Queries
@@ -26,9 +27,17 @@ namespace MWMS.Services.Maintenance.API.Queries
 
         public async Task<WorkshopCalendarModel> GetWorkshopCalendarAsync(DateTime calendarDate)
         {
-            var plans = await _calendarRepo.GetWorkshopCalendarAsync(calendarDate);
+            WorkshopCalendarModel model = new WorkshopCalendarModel();
 
-            return _mapper.Map<WorkshopCalendarModel>(plans);
+            var (workshopCalendar, events) = await _calendarRepo.GetWorkshopCalendarAsync(calendarDate);
+
+            model = _mapper.Map<WorkshopCalendarModel>(workshopCalendar);
+            if (model != null)
+            {
+                model.Jobs = _mapper.Map<IEnumerable<MaintenanceJobModel>>(events);
+            }
+
+            return model;
 
         }
 

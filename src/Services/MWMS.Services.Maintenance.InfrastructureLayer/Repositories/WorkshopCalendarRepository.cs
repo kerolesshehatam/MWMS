@@ -23,7 +23,7 @@ namespace MWMS.Services.Maintenance.InfrastructureLayer.Repositories
         public async Task<WorkshopCalendarEvent> GetMaintenanceJobAsync(DateTime date, Guid guid)
         {
 
-            var workshopCalendarEvents = await _context.WorkshopCalendarEvents.Find(w => w.EventDate == date.ToString("yyyy-MM-dd")).FirstOrDefaultAsync();
+            var workshopCalendarEvents = await _context.WorkshopCalendarEvents.Find(w => w.EventDate == date.ToString("yyyy-MM-dd") && w.Id == guid).FirstOrDefaultAsync();
 
             return workshopCalendarEvents;
         }

@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 using MWMS.Messaging.Infrastructure;
+using MWMS.Messaging.Infrastructure.RabbitMQ;
 using MWMS.Services.Maintenance.API.CommandHandlers;
-using MWMS.Services.Maintenance.API.Models;
 using MWMS.Services.Maintenance.API.Queries;
 using MWMS.Services.Maintenance.InfrastructureLayer.Util;
 
@@ -41,14 +35,28 @@ namespace MWMS.Services.Maintenance.API
                 options.DatabaseName
                     = Configuration.GetSection("MongoConnection:Database").Value;
             });
+
+            // add messagepublisher classes
+            var configSection = Configuration.GetSection("RabbitMQ");
+            string host = configSection["Host"];
+            string userName = configSection["UserName"];
+            string password = configSection["Password"];
+            services.AddTransient<IMessagePublisher>((sp) => new RabbitMQMessagePublisher(host, userName, password, "MWMS"));
+
+            //swagger
+
+            services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "MWMS API", Version = "v1" });
+            });
             //Add AutoMapper
             services.AddAutoMapper(typeof(Startup));
 
             //Register DI
+            InfrastructureLayerDIRegistration.Register(services);
+            // MessagingDIRegistration.Register(services);
             CommandHandlersDIRegistration.Register(services);
             QueriesDIRegistration.Register(services);
-            MessagingDIRegistration.Register(services);
-            InfrastructureLayerDIRegistration.Register(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +74,11 @@ namespace MWMS.Services.Maintenance.API
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MWMS API V1");
+            });
         }
     }
 }

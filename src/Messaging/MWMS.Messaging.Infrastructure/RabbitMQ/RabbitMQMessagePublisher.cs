@@ -33,7 +33,7 @@ namespace MWMS.Messaging.Infrastructure.RabbitMQ
             _password = password;
             _exchange = exchange;
 
-            Connect();
+           // Connect();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace MWMS.Messaging.Infrastructure.RabbitMQ
         {
             Policy
                 .Handle<Exception>()
-                .WaitAndRetry(9, r => TimeSpan.FromSeconds(5), (ex, ts) => { Log.Error("Error connecting to RabbitMQ. Retrying in 5 sec."); })
+                .WaitAndRetry(1, r => TimeSpan.FromSeconds(5), (ex, ts) => { Log.Error("Error connecting to RabbitMQ. Retrying in 5 sec."); })
                 .Execute(() =>
                 {
                     var factory = new ConnectionFactory() { UserName = _username, Password = _password };
