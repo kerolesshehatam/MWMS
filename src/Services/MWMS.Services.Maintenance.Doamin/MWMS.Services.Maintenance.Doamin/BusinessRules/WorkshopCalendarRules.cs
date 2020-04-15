@@ -15,7 +15,7 @@ namespace MWMS.Services.Maintenance.Doamin.BusinessRules
         public static void NumberOfParallelMaintenanceJobsMustNotExceedAvailableWorkStations(
             this WorkshopCalendarAggregateRoot calendar, PlanMaintenanceJob command)
         {
-            if (calendar.Jobs.Count(j => j.PlannedTimeslot.OverlapsWith(command.StartTime, command.EndTime)) >= AVAILABLE_WORKSTATIONS)
+            if (calendar.Jobs?.Count(j => j.PlannedTimeslot.OverlapsWith(command.StartTime, command.EndTime)) >= AVAILABLE_WORKSTATIONS)
             {
                 throw new BusinessRuleViolationException($"Maintenancejob overlaps with more than {AVAILABLE_WORKSTATIONS} other jobs.");
             }
@@ -24,7 +24,7 @@ namespace MWMS.Services.Maintenance.Doamin.BusinessRules
         public static void NumberOfParallelMaintenanceJobsOnAVehicleMustNotExceedOne(
             this WorkshopCalendarAggregateRoot calendar, PlanMaintenanceJob command)
         {
-            if (calendar.Jobs.Any(j => j.Vehicle.Id == command.VehicleInfo.LicenseNumber &&
+            if (calendar.Jobs!=null && calendar.Jobs.Any(j => j.Vehicle.Id == command.VehicleInfo.LicenseNumber &&
                     j.PlannedTimeslot.OverlapsWith(command.StartTime, command.EndTime)))
             {
                 throw new BusinessRuleViolationException($"Only 1 maintenance job can be executed on a vehicle during a certain time-slot.");

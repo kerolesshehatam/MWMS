@@ -24,7 +24,9 @@ namespace MWMS.Services.Maintenance.Doamin.Aggregates
 
         public WorkshopCalendarAggregateRoot(DateTime date, IEnumerable<Event> events) :
             base(WorkshopCalendarId.Create(date), events)
-        { }
+        {
+            Jobs = new List<MaintenanceJob>();
+        }
 
         /// <summary>
         /// Creates a new instance of a workshop-Calendar for the specified date.
@@ -48,7 +50,6 @@ namespace MWMS.Services.Maintenance.Doamin.Aggregates
 
             // handle event
             MaintenanceJobPlanned e = new MaintenanceJobPlanned(command.MessageId,
-                                                                command.JobId,
                                                                 command.StartTime,
                                                                 command.EndTime,
                                                                 command.CustomerInfo,

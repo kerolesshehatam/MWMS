@@ -7,6 +7,7 @@ using MWMS.Services.Maintenance.Doamin.Entities;
 using MWMS.Services.Maintenance.InfrastructureLayer.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MWMS.Services.Maintenance.API.CommandHandlers
@@ -27,6 +28,7 @@ namespace MWMS.Services.Maintenance.API.CommandHandlers
             {
                 cfg.CreateMap<WorkshopCalendarAggregateRoot, WorkshopCalendarModel>().ReverseMap();
                 cfg.CreateMap<MaintenanceJob, MaintenanceJobModel>().ReverseMap();
+                cfg.CreateMap<MaintenanceJob, MaintenanceJobModel>().ReverseMap();
             }).CreateMapper();
         }
 
@@ -34,6 +36,7 @@ namespace MWMS.Services.Maintenance.API.CommandHandlers
         {
             bool isJobPlannedSuccessfully = false;
             // get or create workshop-Calendar
+            //(WorkshopCalendar existingCalendar, IEnumerable<WorkshopCalendarEvent> existingEvents)
             var (existingCalendar, existingEvents) = await _calendarRepo.GetWorkshopCalendarAsync(calendarDate);
             WorkshopCalendarAggregateRoot workshopCalendar;
 
@@ -43,15 +46,24 @@ namespace MWMS.Services.Maintenance.API.CommandHandlers
             }
             else
             {
-                workshopCalendar = new WorkshopCalendarAggregateRoot(calendarDate);
+                //TODO: Map existingEvents to the root event so we can check the overlapping
+                //var activeEvents = existingEvents?.Where(e => e.ActualEndDateTime != null)?.ToList();
+                //if (activeEvents.Any())
+                //{
+                //    events.Concat(activeEvents);
+                //}
+                workshopCalendar = new WorkshopCalendarAggregateRoot(calendarDate, new List<Event>());
             }
 
             // handle command
+            //TODO while planning for a new maintenance job, system should create new GUID for the new JOB
             workshopCalendar.PlanMaintenanceJob(command);
 
-            // persist
             IEnumerable<Event> events = workshopCalendar.GetEvents();
 
+            // persist
+            //TODO we shouldn't use events while save to database events should used only between context 
+            //we should use Aggregate root instance values while validated by business rules 
             isJobPlannedSuccessfully = await _calendarRepo.SaveWorkshopCalendarAsync(workshopCalendar.Id, workshopCalendar.OriginalVersion, workshopCalendar.Version, events);
 
             // publish event

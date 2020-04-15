@@ -43,6 +43,7 @@ namespace MWMS.Services.Maintenance.API.CommandHandlers
             }
             else
             {
+                //TODO: Map existingEvents to the root event so we can check the overlapping
                 workshopCalendar = new WorkshopCalendarAggregateRoot(calendarDate);
             }
 
@@ -50,6 +51,8 @@ namespace MWMS.Services.Maintenance.API.CommandHandlers
             workshopCalendar.FinishMaintenanceJob(command);
 
             // persist
+            //TODO we shouldn't use events while save to database events should used only between context 
+            //we should use Aggregate root instance values while validated by business rules 
             IEnumerable<Event> events = workshopCalendar.GetEvents();
 
             isJobFinishedSuccessfully = await _calendarRepo.SaveWorkshopCalendarAsync(workshopCalendar.Id, workshopCalendar.OriginalVersion, workshopCalendar.Version, events);

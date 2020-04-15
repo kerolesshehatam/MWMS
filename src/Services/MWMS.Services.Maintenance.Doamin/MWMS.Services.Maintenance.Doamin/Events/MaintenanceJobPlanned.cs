@@ -12,12 +12,12 @@ namespace MWMS.Services.Maintenance.Doamin.Events
         public readonly (string LicenseNumber, string Brand, string Type) VehicleInfo;
         public readonly string Description;
 
-        public MaintenanceJobPlanned(Guid messageId, Guid jobId, DateTime startTime, DateTime endTime,
+        public MaintenanceJobPlanned(Guid messageId, DateTime startTime, DateTime endTime,
             (string Id, string Name, string TelephoneNumber) customerInfo,
             (string LicenseNumber, string Brand, string Type) vehicleInfo,
             string description) : base(messageId)
         {
-            JobId = jobId;
+            JobId = Guid.NewGuid();
             StartTime = startTime;
             EndTime = endTime;
             CustomerInfo = customerInfo;

@@ -22,8 +22,8 @@ namespace MWMS.Services.Maintenance.InfrastructureLayer.Repositories
 
         public async Task<WorkshopCalendarEvent> GetMaintenanceJobAsync(DateTime date, Guid guid)
         {
-
-            var workshopCalendarEvents = await _context.WorkshopCalendarEvents.Find(w => w.EventDate == date.ToString("yyyy-MM-dd") && w.Id == guid).FirstOrDefaultAsync();
+            //TODO : add GUID to filter but after fix the issue of saving it as binary data "&& w.Id == guid"
+            var workshopCalendarEvents = await _context.WorkshopCalendarEvents.Find(w => w.EventDate == date.ToString("yyyy-MM-dd")).FirstOrDefaultAsync();
 
             return workshopCalendarEvents;
         }
@@ -47,6 +47,7 @@ namespace MWMS.Services.Maintenance.InfrastructureLayer.Repositories
             {
                 foreach (var newEvent in newEvents.OrderBy(e => e.Priority).ToList())
                 {
+                    //TODO: Temp as I will not depend on events 
                     switch (newEvent)
                     {
                         case WorkshopCalendarCreated e:
@@ -93,6 +94,7 @@ namespace MWMS.Services.Maintenance.InfrastructureLayer.Repositories
         {
             WorkshopCalendarEvent calendarEvent = new WorkshopCalendarEvent()
             {
+                Id = newEvent.JobId,
                 EventDate = calendarId,
                 CustomerId = newEvent.CustomerInfo.Id,
                 VehicleLicenseNumber = newEvent.VehicleInfo.LicenseNumber,
@@ -100,6 +102,8 @@ namespace MWMS.Services.Maintenance.InfrastructureLayer.Repositories
                 Note = newEvent.Description,
                 PlannedEndDateTime = newEvent.StartTime,
                 PlannedStartDateTime = newEvent.EndTime,
+                ActualStartDateTime = new DateTime(),
+                ActualEndDateTime = new DateTime(),
                 MessageType = newEvent.MessageType
             };
             try
