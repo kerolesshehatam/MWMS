@@ -3,31 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Maintenance.Doamin", "MWMS.Services.Maintenance.Doamin\MWMS.Services.Maintenance.Doamin.csproj", "{8ACE1A85-AEB5-4CC9-8A8E-D0A6DBDF49D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Maintenance.Doamin", "Services\MWMS.Services.Maintenance.Doamin\MWMS.Services.Maintenance.Doamin.csproj", "{8ACE1A85-AEB5-4CC9-8A8E-D0A6DBDF49D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4E2F3423-4BED-4E95-BDC6-4F60E9776A50}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Maintenance", "Maintenance", "{994E80A9-A5B9-4495-B1A5-3FF30FD330F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Maintenance.InfrastructureLayer", "..\MWMS.Services.Maintenance.InfrastructureLayer\MWMS.Services.Maintenance.InfrastructureLayer.csproj", "{3D36F3D0-0DC5-47BD-93AE-59F566B383F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Maintenance.InfrastructureLayer", "Services\MWMS.Services.Maintenance.InfrastructureLayer\MWMS.Services.Maintenance.InfrastructureLayer.csproj", "{3D36F3D0-0DC5-47BD-93AE-59F566B383F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Maintenance.API", "..\MWMS.Services.Maintenance.API\MWMS.Services.Maintenance.API.csproj", "{089EAB2C-5112-4E71-A43C-241B201AA9AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Maintenance.API", "Services\MWMS.Services.Maintenance.API\MWMS.Services.Maintenance.API.csproj", "{089EAB2C-5112-4E71-A43C-241B201AA9AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vehicle", "Vehicle", "{F20E62CC-81FB-4302-9229-F7220FD10FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Vehicle.Doamin", "..\MWMS.Services.Vehicle.Doamin\MWMS.Services.Vehicle.Doamin.csproj", "{AF13FB93-E302-4AF5-BC93-78AD3DFA6880}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Vehicle.Doamin", "Services\MWMS.Services.Vehicle.Doamin\MWMS.Services.Vehicle.Doamin.csproj", "{AF13FB93-E302-4AF5-BC93-78AD3DFA6880}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Vehicle.Infrastructure", "..\MWMS.Services.Vehicle.Infrastructure\MWMS.Services.Vehicle.Infrastructure.csproj", "{BE7283D7-51A6-4BC9-97B4-8B2B8CBE8EE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Vehicle.Infrastructure", "Services\MWMS.Services.Vehicle.Infrastructure\MWMS.Services.Vehicle.Infrastructure.csproj", "{BE7283D7-51A6-4BC9-97B4-8B2B8CBE8EE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Vehicle.API", "..\MWMS.Services.Vehicle.API\MWMS.Services.Vehicle.API.csproj", "{ED67564B-FFEB-4CE6-8280-C77AB65D869F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Vehicle.API", "Services\MWMS.Services.Vehicle.API\MWMS.Services.Vehicle.API.csproj", "{ED67564B-FFEB-4CE6-8280-C77AB65D869F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customer", "Customer", "{88ECD082-A2FE-4BD4-BDD0-24796465DB08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Customer.Doamin", "..\MWMS.Services.Customer.Doamin\MWMS.Services.Customer.Doamin.csproj", "{67A975A6-06F5-4F0C-A730-BD1C87BBF840}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Customer.Doamin", "Services\MWMS.Services.Customer.Doamin\MWMS.Services.Customer.Doamin.csproj", "{67A975A6-06F5-4F0C-A730-BD1C87BBF840}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Customer.Infrastructure", "..\MWMS.Services.Customer.Infrastructure\MWMS.Services.Customer.Infrastructure.csproj", "{EA9929D2-E523-403B-8FFF-2A6B51710E9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Customer.Infrastructure", "Services\MWMS.Services.Customer.Infrastructure\MWMS.Services.Customer.Infrastructure.csproj", "{EA9929D2-E523-403B-8FFF-2A6B51710E9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Customer.API", "..\MWMS.Services.Customer.API\MWMS.Services.Customer.API.csproj", "{7ABC40AD-D4C1-4629-B5A3-732F9B83CEAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Customer.API", "Services\MWMS.Services.Customer.API\MWMS.Services.Customer.API.csproj", "{7ABC40AD-D4C1-4629-B5A3-732F9B83CEAD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{C5879F3D-1C50-4451-AFC7-B4D001954154}"
 EndProject
@@ -35,21 +35,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8FEF77FE-D204-44F3-B893-59CCD5F0BD17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Maintenance.Tests", "..\..\Tests\MWMS.Services.Maintenance.Tests\MWMS.Services.Maintenance.Tests.csproj", "{F9B3C990-0AB2-40A2-AB13-1D9C510FD027}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Maintenance.Tests", "Tests\MWMS.Services.Maintenance.Tests\MWMS.Services.Maintenance.Tests.csproj", "{F9B3C990-0AB2-40A2-AB13-1D9C510FD027}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{636EB56A-C4F8-488C-B2E4-A717A92F8C31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Customer.Tests", "..\..\Tests\MWMS.Services.Customer.Tests\MWMS.Services.Customer.Tests.csproj", "{8E797A60-A1D9-4D5A-A28A-A3DFEDBF9791}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Customer.Tests", "Tests\MWMS.Services.Customer.Tests\MWMS.Services.Customer.Tests.csproj", "{8E797A60-A1D9-4D5A-A28A-A3DFEDBF9791}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{88BCCE00-210D-45A3-BA22-35DE47909DD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Vehicle.Tests", "..\..\Tests\MWMS.Services.Vehicle.Tests\MWMS.Services.Vehicle.Tests.csproj", "{605B51C8-0423-4554-8E05-A3AC18600FD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Services.Vehicle.Tests", "Tests\MWMS.Services.Vehicle.Tests\MWMS.Services.Vehicle.Tests.csproj", "{605B51C8-0423-4554-8E05-A3AC18600FD3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{CECD9652-B5D2-4CAC-ABCA-27F8D7AD8839}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messaging", "Messaging", "{01E90DA6-B5BA-4A8A-9E27-335A5A94B2D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Messaging.Infrastructure", "..\..\Messaging\MWMS.Messaging.Infrastructure\MWMS.Messaging.Infrastructure.csproj", "{A7826C29-ACBC-4C44-92C6-D7E5DC2037DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWMS.Messaging.Infrastructure", "Messaging\MWMS.Messaging.Infrastructure\MWMS.Messaging.Infrastructure.csproj", "{A7826C29-ACBC-4C44-92C6-D7E5DC2037DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MWMS.Services.Maintenance.Doamin\MWMS.Services.Maintenance.Doamin\MWMS.Services.Maintenance.Doamin.csproj" />
+    <ProjectReference Include="..\MWMS.Services.Maintenance.Doamin\MWMS.Services.Maintenance.Doamin.csproj" />
   </ItemGroup>
 
   <ItemGroup>

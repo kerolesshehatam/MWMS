@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Messaging\MWMS.Messaging.Infrastructure\MWMS.Messaging.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Messaging\MWMS.Messaging.Infrastructure\MWMS.Messaging.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
